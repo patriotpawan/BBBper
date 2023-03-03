@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+		<title>About us</title>
+		<style>
+			body {
+				background: #fdfdfd;
+				margin: 0;
+				font-family: 'Roboto', sans-serif;
+			}
+			nav {
+				background: transparent;
+				position: absolute;
+				top: auto;
+				bottom: auto;
+				height: auto;
+				left: auto;
+				width: 50px;
+			}
+			a {
+				display: table;
+				position: relative;
+				text-decoration: none;
+				color: while;
+				font-size: 15px;
+				width: 10px;
+			}
+			.fa {
+				position: relative;
+				width: 80px;
+				height: 40px;
+				text-align: center;
+				top: 12px; 
+				font-size: 20px;
+			}
+			nav .nav-text  {
+				position:relative;
+				top:12px;
+			}
+			a:hover{
+				color:#fff;
+				background-color:#3863F4; 
+			}
+			a{
+				width:150px;
+			}
+			nav{
+				width:80px;
+			}
+			nav{
+				overflow:hidden;
+			}
+			nav:hover{
+				width:150px;
+			}
+
+			.container {
+				max-width: 1170px;
+				width: 100%;
+				padding: 0 15px;
+				box-sizing: border-box;
+				margin: 0 auto;            
+			}
+			.content-section {
+				width: 100%;
+				padding-bottom: 40px;
+			}
+			.content-section form {
+				width: 500px;
+				display: flex;
+				margin: 40px auto 0;
+			}
+			.banner img {
+				max-width: 100%;
+				width: 100%;
+				display: inline-block;
+			}
+			input[type=text], select, textarea {    
+				width: 98%;    
+				padding: 12px;    
+				border: 1px solid rgb(70, 68, 68);    
+				border-radius: 4px;    
+				resize: vertical;    
+			}    
+			input[type=email], select, textarea {    
+				width: 98%;    
+				padding: 12px;    
+				border: 1px solid rgb(70, 68, 68);    
+				border-radius: 4px;    
+				resize: vertical;    
+			}    
+			label {    
+				padding: 12px 12px 12px 0;    
+				display: inline-block;    
+			}    
+			input[type=submit] {    
+				background-color: rgb(37, 116, 161);    
+				color: white;    
+				padding: 12px 20px;    
+				border: none;    
+				border-radius: 4px;    
+				cursor: pointer;    
+				float: right;    
+			}    
+			input[type=submit]:hover {    
+				background-color: #45a049;    
+			}    
+			.container {    
+				border-radius: 5px;    
+				background-color: #f2f2f2;    
+				padding: 20px;    
+			}    
+			.col-25 {    
+				float: left;    
+				width: 20%;    
+				margin-top: 6px;    
+			}    
+			.col-75 {    
+				float: left;    
+				width: 80%;    
+				margin-top: 6px;    
+			}    
+			.row:after {    
+				content: "";    
+				display: table;    
+				clear: both;    
+			}
+		</style>
+	</head>
+
+	<body>
+		<main role="main" class="container">
+			<body>
+				<div class="banner">
+					<img src="{{ url_for('static', filename='BBB_site_logo.jpg') }}" alt="BBBper">
+				</div>
+
+				<nav>
+					<a href="/"> 
+						<i class="fa fa-home fa-lg"></i>
+						<span class="nav-text">Home</span></a>
+					<a href="/about"> 
+						<i class="fa fa-thumb-tack fa-lg"></i>
+						<span class="nav-text">About us</span></a>	
+				</nav>
+		 
+				<div>
+					<h1 align=center>Feedback Form</h1>
+				</div>
+				<h3 align=center style="color:green"> Thankyou for your response.</h3>
+				<div class="container">    
+						<form action="/submit" method="post">
+							<div class="row">    
+								<div class="col-25">    
+									<label for="name">Name</label>    
+								</div>    
+								<div class="col-75">    
+									<input type="text" id="name" name="name" placeholder="Your name.." autocomplete="off">    
+								</div>    
+							</div>    
+							<div class="row">    
+								<div class="col-25">    
+									<label for="email">Mail Id</label>    
+								</div>    
+								<div class="col-75">    
+									<input type="email" id="email" name="email" placeholder="Your mail id.." autocomplete="off">    
+								</div>    
+							</div>    
+							<div class="row">    
+								<div class="col-25">    
+									<label for="country">Country</label>    
+								</div>    
+								<div class="col-75">
+									<input type="text" id="country" name="country" placeholder="Country.." autocomplete="off">
+								</div>
+							</div>    
+							<div class="row">    
+								<div class="col-25">    
+									<label for="feed_back">Feed Back</label>    
+								</div>    
+								<div class="col-75">    
+									<textarea id="feedback" name="feedback" placeholder="Your Feedback.." style="height:200px"></textarea>    
+								</div>    
+							</div>    
+							<div class="row" align="right">
+								<input type="submit" value="Submit">
+							</div>
+						</form>
+				</div>
+
+				<hr size="2" width="100%" color="black">
+			
+				<p align= center>Total number of visitors:
+					<br>
+					<img src="https://hitwebcounter.com/counter/counter.php?page=7863213&style=0006&nbdigits=5&type=page&initCount=0"/>
+				</p>
+				<p align= center>Copyright 2022, Toxicology and Computational Biology Group. All rights reserved. | Disclaimer </p>
+			</body>
+		</main>
+	</body>
+</html>

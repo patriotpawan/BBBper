@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>BBBper</title>
+    <style>
+        body {
+            background: #fdfdfd;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+        .container {
+            max-width: 1170px;
+            width: 100%;
+            padding: 0 15px;
+            box-sizing: border-box;
+            margin: 0 auto;            
+        }
+        .content-section {
+            width: 100%;
+            padding-bottom: 40px;
+        }
+        .content-section form {
+            width: 500px;
+            display: flex;
+            margin: 40px auto 0;
+        }
+        .form-control {
+            width: 100%;
+            height: 45px;
+            background: #fff;
+            border: 1px solid #dedede;
+            border-radius: 5px 0 0 5px;
+            padding: 0 15px;
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+        .submit-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 15px;
+            color: #fff;
+            background: blue;
+            border: 1px solid blue;
+            border-radius: 0 5px 5px 0;
+            font-weight: 700;
+        }
+        header {
+            width: 100%;
+            max-width: 1170px;
+            padding: 0 15px;
+            box-sizing: border-box;
+            text-align: center;
+            padding: 30px 0 20px;
+        }
+        header h1 {
+            font-size: 36px;
+            line-height: 30px;
+            color: #000;
+            font-weight: 500;
+        }
+		banner {
+			width: ;
+		}
+        .output-block {
+            margin: 20px auto 0;
+            max-width: 500px;
+        }
+        .output-block .res-mes {
+            font-size: 16px;
+            font-weight: 500;
+            display: block;
+            padding: 15px;
+            background: #7db0dc;
+            color: #fff;
+            border-radius: 5px;
+        }
+        .output-block .res-mes.success {
+            background: #11960f;
+        }
+        .output-block .res-mes.error {
+            background: #8a0000;
+        }
+        .result-history {
+            margin-top: 10px;
+            border: 1px solid #dedede;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .result-history thead {
+            background: #e4e4e4;
+        }
+        .result-history tbody tr:nth-child(even) {
+            background: #f5f5f5;
+        }
+        .result-history th {
+            text-align: left;
+            font-size: 15px;
+            border: 1px solid #dedede;
+            color: #111;
+            padding: 8px 12px;
+            width: 50%;
+            font-weight: 500;
+        }
+        .result-history td {
+            font-size: 15px;
+            border: 1px solid #dedede;
+            color: rgba(0, 0, 0, 0.6);
+            padding: 8px 12px;
+            width: 50%;
+        }
+		.banner img {
+			max-width: 100%;
+			width: 100%;
+			display: inline-block;
+		}
+    </style>
+</head>
+
+<body>
+    <main role="main" class="container">
+	<style>
+
+</style>
+</head>
+<body>
+		<div class="banner">
+		<img src="{{ url_for('static', filename='BBB_site_logo.jpg') }}" alt="BBBper">
+		</div>
+		<header>
+            <h1>Blood-Brain Barrier permeability prediction</h1>
+        </header>
+        <p align=justify>Blood-Brain Barrier (BBB) is a selectively permeable physico-chemical barrier that regulates the passage
+		of a multitude of large and small molecules into the microenvironment of the neurons.</p>
+		<h2>Significance of Blood Brain Barrier</h2>
+		<ul>
+		<li align=justify>The main purpose of the blood-brain barrier is to protect the brain from circulating toxins or pathogens,
+		that can cause brain infections, while also allowing essential nutrients to pass through. Although it seems
+		that the BBB is helping our brains by limiting what can go in and out.</li>
+		<p> </p>
+		<li align=justify>BBB helps to maintain relatively constant levels of hormones, nutrients and water in the brain and any fluctuations in 
+		level of hormones or nutrients could disrupt the finely tuned environment.</li>
+		</ul>
+		<h2>Blood Brain Barrier permeability prediction (BBBper)</h2>
+		<p align=justify>BBBper predicts the permeation of different chemicals across the Blood-Brain Barrier, along with other
+		physico-chemical descriptors defining Lipinski's rule of 5.
+		</p>
+        <div class="content-section">
+            <form method="POST" action="">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <input type="text" class="form-control" name="search" placeholder="Enter SMILES format only" required autocomplete="off" value={{search}}>
+                <button type="submit" name="submit" class="submit-btn">Submit</button>
+            </form>
+            {% if response %}
+            <div class="output-block">
+                <!-- add success class for success call -->
+                {% if message %}
+                <span class="res-mes {% if response.Molecular_Weight %}success{%else%}error{%endif%}">{{message}}</span>
+                {% endif %}
+                
+                {% if response.Molecular_Weight %}
+                <table class="result-history">
+                    <thead>
+                        <tr>
+                            <th>Descriptor</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for key, value in response.items() %}
+                            {% if key!='status' and key!='message' %}
+                            <tr>
+                                <td>{{key}}</td>
+                                <td>{{value}}</td>
+                            </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+			<h2>Reference</h2>
+			<p>Will update soon</p>
+		<div padding: 10px;">
+		<hr size="2" width="100%" color="black">
+			<p>For any suggestion to help us serve you better kindly mail us at: <a style= "text-decoration:underline", "color:blue">ajitkumar.cbinfo@mdurohtak.ac.in </a></p>
+		<hr size="2" width="100%" color="black">
+		</div>
+
+		<div>
+			<a>
+			<p>Total number of visitors:
+			<img src="https://hitwebcounter.com/counter/counter.php?page=7863213&style=0006&nbdigits=5&type=page&initCount=0" title="Thanks for using BBBper" Alt="web counter"   border="0" />
+			</p></a>          
+		</div>
+		<div>
+			<p align= center>Copyright 2022, Toxicology and Computational Biology Group. All rights reserved. | Disclaimer </p>
+		</div>
+</body>
+    </main>
+	</body>
+</html>

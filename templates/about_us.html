@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+		<title>About us</title>
+		<style>
+			body {
+				background: #fdfdfd;
+				margin: 0;
+				font-family: 'Roboto', sans-serif;
+			}
+			nav {
+				background: transparent;
+				position: absolute;
+				top: auto;
+				bottom: auto;
+				height: auto;
+				left: auto;
+				width: 50px;
+			}
+			a {
+				display: table;
+				position: relative;
+				text-decoration: none;
+				color: while;
+				font-size: 15px;
+				width: 10px;
+			}
+			.fa {
+				position: relative;
+				width: 80px;
+				height: 40px;
+				text-align: center;
+				top: 12px; 
+				font-size: 20px;
+			}
+			nav .nav-text  {
+				position:relative;
+				top:12px;
+			}
+			a:hover{
+				color:#fff;
+				background-color:#3863F4; 
+			}
+			a{
+				width:150px;
+			}
+			nav{
+				width:80px;
+			}
+			nav{
+				overflow:hidden;
+			}
+			nav:hover{
+				width:150px;
+			}
+
+			.container {
+				max-width: 1170px;
+				width: 100%;
+				padding: 0 15px;
+				box-sizing: border-box;
+				margin: 0 auto;            
+			}
+			.content-section {
+				width: 100%;
+				padding-bottom: 40px;
+			}
+			.content-section form {
+				width: 500px;
+				display: flex;
+				margin: 40px auto 0;
+			}
+			.banner img {
+				max-width: 100%;
+				width: 100%;
+				display: inline-block;
+			}
+			#parent {
+				width: auto;
+				height: auto;
+				white-space: nowrap;
+				overflow-x: auto;
+			}
+			.detail {
+				display: inline-block;
+				width: 20%;
+				height: auto;
+				background: transparent;
+			}
+		</style>
+	</head>
+
+	<body>
+		<main role="main" class="container">
+			<body>
+				<div class="banner">
+					<img src="{{ url_for('static', filename='BBB_site_logo.jpg') }}" alt="BBBper">
+				</div>
+
+				<nav>
+					<a href="/"> 
+						<i class="fa fa-home fa-lg"></i>
+						<span class="nav-text">Home</span></a>
+					<a href="/feedback"> 
+						<i class="fa fa-envelope fa-lg"></i>
+						<span class="nav-text">Feedback</span></a>		
+				</nav>
+		 
+				<div>
+					<h1 align=center>About us</h1>
+				</div>
+				<br>
+				<div align=justify>
+					<h3>Toxicology and Computational Biology Group</h3>
+					<p>Genome/Proteome to drug design protocols are obtained when advances in genomics, proteomics and molecular modelling are integrated. 
+					Advances in genomics and bioinformatics have allowed the identification of genes that code the primary sequences of hundreds of thousands of proteins, 
+					many of them being potential pharmacological targets. Several advances have been made in the field of proteomics to convert primary sequence 
+					information of biopolymers into 3D structural information.</p>
+
+					<p>Traditional chemical toxicity testing is an expensive and time-consuming process involving sacrifice of significant number of animals. 
+					Computational Toxicology is about researching newer and more efficient ways to manage the safety of chemicals, particularly in assessing 
+					chemicals for potential risk to human health and the environment.</p>
+
+					<p>We, at Toxicology & Computational Biology Group, Centre for Bioinformatics, M. D. University, Rohtak, integrate recent advances in molecular biology, 
+					chemistry and computer science to analyze chemicals and their interactions with biological systems to support discovery and designing of drug, 
+					pesticide and other relevant NCEs more effectively and efficiently with lesser of toxicological effect to human and environment, both. 
+					Our current endeavours emphasize on Drug repositioning, Drug designing, Phyto-therapeutics, Database development, Web-server tools, etc., 
+					for solving different biological/clinical issues, particularly neuro-disorders like Epilepsy, Alzheimer disease, Parkinson’s Disease, and neuro-teratogenicity.</p>
+				</div>
+
+				<p>For latest information about our group<a href="http://www.computoxgroupmdu.webs.com/">check us here</a></p>
+		
+				<hr size="2" width="100%" color="black">
+				<div id=parent>
+					<h4>For any suggestion to help us serve you better kindly contact:</h4>
+					<p>Dr. Ajit Kumar</p>
+					<p>Toxicology and Computational Biology Group,</p>
+					<p>Centre for Bioinformatics</p>
+					<p>Maharshi Dayanand University, Rohtak, Haryana, India</p>
+					<p class=detail><i class="fa fa-envelope"> ajitkumar.cbinfo@mdurohtak.ac.in </i></p>
+				</div>
+				<hr size="2" width="100%" color="black">
+			
+				<p align= center>Total number of visitors:
+				<br>
+				<img src="https://hitwebcounter.com/counter/counter.php?page=7863213&style=0006&nbdigits=5&type=page&initCount=0"/>
+				</p>
+				<p align= center>Copyright 2022, Toxicology and Computational Biology Group. All rights reserved. | Disclaimer </p>
+			</body>
+		</main>
+	</body>
+</html>
